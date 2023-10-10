@@ -14,15 +14,17 @@ public class HW4 {
     //TODO: read CSV file, split at regex, create an item object for each
     public static void readFile(String file) throws IOException {
         try (Scanner reader = new Scanner(Paths.get(file))) {
+            Item root = new Item(100,null,null);
             while (reader.hasNextLine()) {
-            String str = reader.nextLine();
-            String[] attributes = str.split(",");
-            int key = Integer.parseInt(attributes[0]);
-            String type = attributes[1];
-            String name = attributes[2];
-            Item.addItem(key,type,name);
-        }
+                String str = reader.nextLine();
+                String[] attributes = str.split(",");
+                int key = Integer.parseInt(attributes[0]);
+                String type = attributes[1];
+                String name = attributes[2];
+                root.addItem(key, type, name);
+            }
         reader.close();
+        root.printItem();
         }
     }
 
