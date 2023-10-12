@@ -1,8 +1,5 @@
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class HW4 {
@@ -28,6 +25,6 @@ public class HW4 {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        tree.inOrderTraversal();
+        tree.printInOrderTraversal();
     }
 }

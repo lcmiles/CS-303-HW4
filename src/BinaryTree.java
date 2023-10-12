@@ -1,3 +1,5 @@
+import java.io.PrintStream;
+
 public class BinaryTree {
     TreeNode root;
 
@@ -29,16 +31,24 @@ public class BinaryTree {
     }
 
     public void inOrderTraversal(TreeNode node) {
-        if (node.left != null) {
-            inOrderTraversal(node.left);
+        PrintStream stream = new PrintStream(System.out);
+        if (node == null) {
+            return;
         }
-        System.out.print("key: " + node.key + ", Type: " + node.type + ", Name: " + node.name);
-        if (node.right != null) {
-            inOrderTraversal(node.right);
+        inOrderTraversal(node.left);
+        stream.print("Key: " + node.key);
+        if (node.type != null) {
+            stream.print(", Type: " + node.type);
         }
+        if (node.name != null) {
+            stream.print(", Name: " + node.name);
+        }
+        stream.println();
+        inOrderTraversal(node.right);
+        stream.close();
     }
 
-    public void inOrderTraversal() {
+    public void printInOrderTraversal() {
         inOrderTraversal(root);
     }
 
