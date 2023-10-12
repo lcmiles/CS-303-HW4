@@ -1,42 +1,33 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class HW4 {
-    
-    public static void main(String[] args) throws Exception {
-        readFile("UPC.csv");
-    }
 
-    //TODO: read CSV file, split at regex, create an item object for each
-    public static void readFile(String file) throws IOException {
-        try (Scanner reader = new Scanner(Paths.get(file))) {
-            Item root = new Item(10, null, null);
-            while (reader.hasNextLine()) {
-                String str = reader.nextLine();
-                String[] attributes = str.split(",");
-                if (attributes.length >= 3) {
-                    try {
-                        long key = Long.parseLong(attributes[0]);
-                        String type = attributes[1];
-                        String name = attributes[2];
-                        root.addItem(key, type, name);
-                    } catch (NumberFormatException e) {
-                        // Handle the case where the first element is not a valid long
-                        System.err.println("Error parsing long: " + attributes[0]);
-                    }
-                } else {
-                    // Handle the case where there are not enough elements in a line
-                    System.err.println("Invalid line: " + str);
+    static String file = "UPC.csv";
+
+    public static void main(String[] args) throws Exception {
+        BinaryTree tree = new BinaryTree();
+        
+        try {
+            Scanner scanner = new Scanner(new File(file));
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] parts = line.split(",");
+                if (parts.length == 3) {
+                    long key = Long.parseLong(parts[0]);
+                    String type = parts[1].trim();
+                    String name = parts[2].trim();
+                    tree.insert(key, type, name);
                 }
             }
-            reader.close();
-            root.printItem();
-        } catch (IOException e) {
-            // Handle file-related exceptions
+            scanner.close();
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        tree.inOrderTraversal();
     }
-
-    //TODO: read data file, split at regex, add to an array
 }
