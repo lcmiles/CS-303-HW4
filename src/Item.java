@@ -1,11 +1,11 @@
 public class Item {
-    private int key;
+    private long key;
     private String name;
     private String type;
     private Item left;
     private Item right;
 
-    public Item(int key, String type, String name) {
+    public Item(long key, String type, String name) {
         this.key = key;
         this.name = name;
         this.type = type; 
@@ -13,7 +13,7 @@ public class Item {
         this.right = null;
     }
 
-    public int getKey() {
+    public long getKey() {
         return this.key;
     }
 
@@ -37,26 +37,24 @@ public class Item {
         this.name = name;
     }
 
-    public void addItem(int key, String type, String name) {
+    public void addItem(long key, String type, String name) {
         if (key < this.key) {
             if (this.left == null) {
                 this.left = new Item(key, type, name);
-            }
-            else {
+            } else {
                 this.left.addItem(key, type, name);
             }
-        }
-        else {
+        } else {
             if (this.right == null) {
                 this.right = new Item(key, type, name);
-            }
-            else {
+            } else {
                 this.right.addItem(key, type, name);
             }
         }
     }
+    
 
-    public boolean search(int key) {
+    public boolean search(long key) {
         if (key == this.key) {
             return true;
         }
