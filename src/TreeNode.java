@@ -11,8 +11,6 @@ public class TreeNode {
         this.key = key;
         this. type = type;
         this.name = name;
-        this.left = left;
-        this.right = right;
         this.p = null;
     }
 }
