@@ -54,6 +54,16 @@ public class BinaryTree {
         }
     }
 
-    //TODO: read input.dat for search keys, implement iterative BST search method
+    public TreeNode search(TreeNode node, Long key) {
+        while (node != null && key != node.key) {
+            if (key < node.key) {
+                node = node.left;
+            }
+            else {
+                node = node.right;
+            }
+        }
+        return node;
+    }
 
 }
