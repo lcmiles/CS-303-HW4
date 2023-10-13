@@ -1,8 +1,13 @@
 import java.util.Stack;
 
 public class BinaryTree {
-    TreeNode root;
+    TreeNode root; //initialize binary search tree root object 
 
+    /* 
+    Description:
+    Parameters:
+    Returns:
+     */ 
     public void insert(long key, String type, String name) {
         TreeNode z = new TreeNode(key, type, name);
         TreeNode y = null;
@@ -30,6 +35,11 @@ public class BinaryTree {
         }
     }
 
+    /* 
+    Description:
+    Parameters:
+    Returns:
+     */
     public void printInOrderTraversal() {
         if (root == null) {
             return; 
@@ -54,6 +64,11 @@ public class BinaryTree {
         }
     }
 
+    /* 
+    Description:
+    Parameters:
+    Returns:
+     */
     public TreeNode search(TreeNode node, Long key) {
         while (node != null && key != node.key) {
             if (key < node.key) {
