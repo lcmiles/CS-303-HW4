@@ -1,4 +1,4 @@
-import java.io.PrintStream;
+import java.util.Stack;
 
 public class BinaryTree {
     TreeNode root;
@@ -30,26 +30,28 @@ public class BinaryTree {
         }
     }
 
-    public void inOrderTraversal(TreeNode node) {
-        PrintStream stream = new PrintStream(System.out);
-        if (node == null) {
-            return;
-        }
-        inOrderTraversal(node.left);
-        stream.print("Key: " + node.key);
-        if (node.type != null) {
-            stream.print(", Type: " + node.type);
-        }
-        if (node.name != null) {
-            stream.print(", Name: " + node.name);
-        }
-        stream.println();
-        inOrderTraversal(node.right);
-        stream.close();
-    }
-
     public void printInOrderTraversal() {
-        inOrderTraversal(root);
+        if (root == null) {
+            return; 
+        }
+        Stack<TreeNode> s = new Stack<TreeNode>();
+        TreeNode current = root;
+        while (current != null || s.size() > 0) {
+            while (current != null) {
+                s.push(current);
+                current = current.left;
+            }
+            current = s.pop();
+            System.out.print("Key: " + current.key);
+            if (current.type != "") {
+                System.out.print(", Type: " + current.type);
+            }
+            if (current.name != "") {
+                System.out.print(", Name: " + current.name);
+            }
+            System.out.println();
+            current = current.right;
+        }
     }
 
 }
