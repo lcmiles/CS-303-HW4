@@ -30,7 +30,7 @@ public class HW4 {
             e.printStackTrace();
         }
 
-        //tree.printInOrderTraversal();
+        tree.printInOrderTraversal();
 
         try {
             Scanner scanner = new Scanner(new File(file2));
