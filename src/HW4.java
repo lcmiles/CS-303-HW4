@@ -7,11 +7,11 @@ public class HW4 {
 
     static String file = "UPC.csv"; //initialize CSV file name
     static String file2 = "input.dat"; //initialize iput data file name
-    static ArrayList<TreeNode> items = new ArrayList<TreeNode>(); //initialize array list for storing items from the CSV file
+    static ArrayList<TreeNode> items = new ArrayList<TreeNode>(); //initialize array list for storing constructed TreeNode objects from the CSV file
     static ArrayList<Long> keys = new ArrayList<Long>(); //initialize array list for storing search target keys
 
     /* 
-    Description: main() reads both the CSV and input files then calls the functions to construct the binary search tree, print the results, and search/print the keys given in the input file
+    Description: main() reads both the CSV and input files then calls the functions to construct the binary search tree, print each node in the tree, and search for the keys given in the input file and print the results
     Parameters:
     Strings[] args - Runtime arguments
     Returns: Nothing
