@@ -39,7 +39,7 @@ public class HW4 {
 
         for (int i = 0; i < items.size(); i++) {
             TreeNode item = items.get(i); //iterate through array list of items
-            tree.insert(item.key, item.type, item.name); //call insert with the current key, type, and name
+            tree.insert(item); //call insert on the created item
         }
 
         tree.printInOrderTraversal(); //call the print method that uses iterative in order traversal
@@ -61,14 +61,12 @@ public class HW4 {
 
         for (int i = 0; i < keys.size(); i++) { //iterate through key array list
             TreeNode result = tree.search(tree.root,keys.get(i)); //call search method on the root of the tree and the current key
-            System.out.print("Key: " + result.key); //next few lines print the search result's key, type, and name
-            if (result.type != "") {
-                System.out.print(", Type: " + result.type);
+            System.out.print("Key: " + result.key); //print result's key
+            if (result.type != "") { //if the result has a type
+                System.out.print(", Type: " + result.type); //print the result's type
             }
-            if (result.name != "") {
-                System.out.print(", Name: " + result.name);
-            }
-            System.out.println();
+            System.out.print(", Name: " + result.name); //print the result's name
+            System.out.println(); //print empty line for ease of reading
         }
 
     }
