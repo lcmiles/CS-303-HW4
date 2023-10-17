@@ -8,6 +8,9 @@ public class BinaryTree {
     Parameters: 
     TreeNode z - the TreeNode object to be added
     Returns: Nothing
+    Sources: 
+    https://www.youtube.com/watch?v=2gZYhlhyDyA
+    https://chat.openai.com/c/78371716-dd16-491e-a6b8-e9bc5faa34d9
      */ 
     public void insert(TreeNode z) {
         TreeNode y = null; //initialize temp TreeNode variable
@@ -36,9 +39,14 @@ public class BinaryTree {
     }
 
     /* 
-    Description: This function traverses the tree using in-order traversal and prints each TreeNode object's key, type (if given), and name
+    Description: This function traverses the tree using in-order traversal and prints each TreeNode object's key, amount (if given), and name
     Parameters: None
     Returns: Nothing
+    Sources: 
+    https://www.youtube.com/watch?v=2gZYhlhyDyA
+    https://chat.openai.com/c/78371716-dd16-491e-a6b8-e9bc5faa34d9
+    https://www.geeksforgeeks.org/binary-search-tree-traversal-inorder-preorder-post-order/
+    https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/
      */
     public void printInOrderTraversal() {
         if (root == null) { //if the root is null 
@@ -53,8 +61,8 @@ public class BinaryTree {
             }
             current = s.pop(); //pop the current node from the stack
             System.out.print("Key: " + current.key); //print the current node's key
-            if (current.type != "") { //if the current node has a type 
-                System.out.print(", Type: " + current.type); //print the current node's type
+            if (current.amount != "") { //if the current node has a amount 
+                System.out.print(", amount: " + current.amount); //print the current node's amount
             }
             System.out.print(", Name: " + current.name); //print the current nodes' name
             System.out.println(); //print empty line for ease of reading
@@ -69,8 +77,12 @@ public class BinaryTree {
     Long key - The target key that the search function compare's each TreeNode object's key to
     Returns:
     TreeNode node - The node with the key matching the target key
+    Sources:
+    https://www.youtube.com/watch?v=2gZYhlhyDyA
+    https://chat.openai.com/c/78371716-dd16-491e-a6b8-e9bc5faa34d9
+    https://www.geeksforgeeks.org/properties-of-binary-tree/
      */
-    public TreeNode search(TreeNode node, Long key) {
+    public TreeNode searchTree(TreeNode node, Long key) {
         while (node != null && key != node.key) { //while the current node is not null and the key is not the key of the current node
             if (key < node.key) { //if the target key is less than key of the current node
                 node = node.left; //set the current node to the left child
